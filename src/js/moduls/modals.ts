@@ -1,5 +1,5 @@
 export const modals = () => {
-  interface Arguments {
+  interface IModals {
     triggersSelector: string;
     modalSelector: string;
     closeSelector: string;
@@ -10,7 +10,7 @@ export const modals = () => {
     modalSelector,
     closeSelector,
     closeClickOverlay
-  }: Arguments): void => {
+  }: IModals): void => {
     const triggers = document.querySelectorAll(triggersSelector);
     const modal = document.querySelector<HTMLDivElement>(modalSelector);
     const close = document.querySelector(closeSelector);
@@ -53,21 +53,17 @@ export const modals = () => {
       }
     });
 
-    if (close) {
-      close.addEventListener('click', () => {
+    close?.addEventListener('click', () => {
+      windowsClose();
+      closeModal();
+    });
+
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal && closeClickOverlay) {
         windowsClose();
         closeModal();
-      });
-    }
-
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal && closeClickOverlay) {
-          windowsClose();
-          closeModal();
-        }
-      });
-    }
+      }
+    });
   };
 
   const calcScroll = (): number => {
@@ -78,7 +74,7 @@ export const modals = () => {
     div.style.overflowY = 'scroll';
     div.style.visibility = 'hidden';
 
-    document.body.appendChild(div);
+    document.body.append(div);
     const scrollWidth = div.offsetWidth - div.clientWidth;
     div.remove();
 
@@ -101,7 +97,7 @@ export const modals = () => {
           selec.style.display = 'block';
         }
         document.body.style.overflow = '';
-        let scroll = calcScroll();
+        const scroll = calcScroll();
         document.body.style.marginRight = `${scroll}px`;
       }
     }, time);
