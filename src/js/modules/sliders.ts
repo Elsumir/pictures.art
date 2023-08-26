@@ -33,26 +33,6 @@ export const sliders = ({ slides, dir, prev, next }: ISliders) => {
 
   const plusSlides = (n: number) => showSlides((slideIndex += n));
 
-  try {
-    if (prev !== undefined && next !== undefined) {
-      const prevBtn = document.querySelector(prev);
-      const nextBtn = document.querySelector(next);
-
-      prevBtn?.addEventListener('click', () => {
-        plusSlides(-1);
-        items[slideIndex - 1].classList.remove('slideInLeft');
-        items[slideIndex - 1].classList.add('slideInRight');
-      });
-      nextBtn?.addEventListener('click', () => {
-        plusSlides(1);
-        items[slideIndex - 1].classList.remove('slideInRight');
-        items[slideIndex - 1].classList.add('slideInLeft');
-      });
-    }
-  } catch (e) {
-    console.log(e);
-  }
-
   const activateAnimation = () => {
     if (dir === 'vertical') {
       paused = setInterval(() => {
@@ -76,4 +56,20 @@ export const sliders = ({ slides, dir, prev, next }: ISliders) => {
   items[0].parentNode?.addEventListener('mouseleave', () =>
     activateAnimation()
   );
+
+  if (!next || !prev) return;
+
+  const prevBtn = document.querySelector(prev);
+  const nextBtn = document.querySelector(next);
+
+  prevBtn?.addEventListener('click', () => {
+    plusSlides(-1);
+    items[slideIndex - 1].classList.remove('slideInLeft');
+    items[slideIndex - 1].classList.add('slideInRight');
+  });
+  nextBtn?.addEventListener('click', () => {
+    plusSlides(1);
+    items[slideIndex - 1].classList.remove('slideInRight');
+    items[slideIndex - 1].classList.add('slideInLeft');
+  });
 };
