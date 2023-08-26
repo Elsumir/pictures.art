@@ -1,5 +1,6 @@
 export const modals = () => {
   let btnPressed: boolean = false;
+
   interface IModals {
     triggersSelector: string;
     modalSelector: string;
@@ -136,6 +137,7 @@ export const modals = () => {
     triggersSelector: '.button-consultation',
     modalSelector: '.popup-consultation',
     closeSelector: '.popup-consultation .popup-close',
+
     destroy: false
   });
   bindModal({
@@ -147,4 +149,5 @@ export const modals = () => {
   openByScroll('.fixed-gift');
 
   // showModalByTime('.popup-consultation', 60000);
+
 };
