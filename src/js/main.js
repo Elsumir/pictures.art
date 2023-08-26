@@ -1,4 +1,4 @@
-import { modals } from './moduls/index';
+import { modals } from './modules/index';
 
 window.addEventListener('DOMContentLoaded', () => {
   modals();
