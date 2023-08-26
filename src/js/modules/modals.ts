@@ -117,5 +117,5 @@ export const modals = () => {
     closeClickOverlay: true
   });
 
-  showModalByTime('.popup-consultation', 60000);
+  // showModalByTime('.popup-consultation', 60000);
 };
