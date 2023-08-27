@@ -149,5 +149,4 @@ export const modals = () => {
   openByScroll('.fixed-gift');
 
   // showModalByTime('.popup-consultation', 60000);
-
 };
