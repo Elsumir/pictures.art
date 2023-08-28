@@ -9,10 +9,9 @@ export const forms = (): void => {
     loading: 'Загрузка...',
     success: 'Спасибо! Скоро с Вами свяжуться!',
     failure: 'Что-то пошло не так...',
-    spinner: 'assets/img/spinner.gif',
+    spinner: '...',
     ok: 'assets/img/ok.png',
-    fail: 'assets/img/fail.png',
-    ff: 'assets/img/ok.png'
+    fail: 'assets/img/fail.png'
   };
 
   const path = {
@@ -32,13 +31,16 @@ export const forms = (): void => {
   };
   uploads.forEach((upload) => {
     upload.addEventListener('input', () => {
-      let dots: string;
       const uploadInput = upload as HTMLInputElement;
 
-      const arr = uploadInput.files ? uploadInput.files[0].name.split('.') : [];
+      if (!uploadInput.files) {
+        return;
+      }
 
-      arr[0].length > 6 ? (dots = '...') : (dots = '.');
-      const name = arr[0].substring(0, 6) + dots + arr[1];
+      const file = uploadInput.files[0];
+      const [fileName, fileExt] = file.name.split('.');
+      const dots = fileName.length > 6 ? '...' : '.';
+      const name = `${fileName.substring(0, 6)} ${dots} ${fileExt}`;
 
       if (upload.previousElementSibling) {
         upload.previousElementSibling.textContent = name;
@@ -60,7 +62,6 @@ export const forms = (): void => {
       }, 400);
 
       const statusImg = document.createElement('img');
-      statusImg.setAttribute('src', message.spinner);
       statusImg.classList.add('animated', 'fadeInUp');
       statusMessage.appendChild(statusImg);
 
@@ -71,14 +72,13 @@ export const forms = (): void => {
       const formData = new FormData(form);
       const JSONData = Object.fromEntries(formData);
 
-      let api: string;
-      form.closest('.popup-design') || form.classList.contains('calc_form')
-        ? (api = path.designer)
-        : (api = path.question);
+      const api =
+        form.closest('.popup-design') || form.classList.contains('calc_form')
+          ? path.designer
+          : path.question;
 
       postData(api, JSONData)
         .then((res) => {
-          console.log(res);
           textMessage.textContent = message.success;
         })
         .catch(() => {
