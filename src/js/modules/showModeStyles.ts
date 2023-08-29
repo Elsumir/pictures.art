@@ -1,9 +1,9 @@
 import { getResource } from '../services/request';
 
-export const showModeStyles = (trigger, wrapper) => {
+export const showModeStyles = (trigger: string, wrapper: string) => {
   const btn = document.querySelector(trigger);
 
-  btn.addEventListener('click', function () {
+  btn?.addEventListener('click', function () {
     getResource('http://localhost:3000/styles')
       .then((res) => createCards(res))
       .catch((error) => console.log(error));
@@ -11,9 +11,9 @@ export const showModeStyles = (trigger, wrapper) => {
     this.remove();
   });
 
-  function createCards(response) {
+  const createCards = (response: []) => {
     response.forEach(({ src, title, link }) => {
-      let card = document.createElement('div');
+      const card = document.createElement('div');
 
       card.classList.add(
         'animated',
@@ -34,7 +34,7 @@ export const showModeStyles = (trigger, wrapper) => {
         </div>
       `;
 
-      document.querySelector(wrapper).appendChild(card);
+      document.querySelector(wrapper)?.appendChild(card);
     });
-  }
+  };
 };
