@@ -3,7 +3,8 @@ export const checkTextInputs = (selector: string) => {
 
   txtInputs.forEach((input) => {
     input.addEventListener('keypress', (e: any) => {
-      if (e.key.match(/[^а-яё 0-9]/gi)) {
+      const onlyRussian = /[^а-яё 0-9]/gi;
+      if (e.key.match(onlyRussian)) {
         e.preventDefault();
       }
     });

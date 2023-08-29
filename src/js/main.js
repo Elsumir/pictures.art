@@ -1,8 +1,4 @@
-import { modals } from './modules/index';
-import { sliders } from './modules/index';
-import { forms } from './modules/index';
-import { checkTextInputs } from './modules/index';
-import { mask } from './modules/index';
+import { modals, sliders, forms, checkTextInputs, mask } from './modules/';
 
 window.addEventListener('DOMContentLoaded', () => {
   modals();
