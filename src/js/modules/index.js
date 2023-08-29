@@ -1,3 +1,5 @@
 export { modals } from './modals';
 export { forms } from './forms';
 export { sliders } from './sliders';
+export { mask } from './mask';
+export { checkTextInputs } from './checkTextInputs';
