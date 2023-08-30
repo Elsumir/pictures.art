@@ -1,4 +1,11 @@
-import { modals, sliders, forms, checkTextInputs, mask } from './modules/';
+import {
+  modals,
+  sliders,
+  forms,
+  checkTextInputs,
+  mask,
+  showModeStyles
+} from './modules/';
 
 window.addEventListener('DOMContentLoaded', () => {
   modals();
@@ -16,4 +23,5 @@ window.addEventListener('DOMContentLoaded', () => {
   mask('[name="phone"]');
   checkTextInputs('[name="name"]');
   checkTextInputs('[name="message"]');
+  showModeStyles('.button-styles', '#styles .row');
 });
