@@ -7,7 +7,8 @@ import {
   showModeStyles,
   calc,
   filter,
-  pictureSize
+  pictureSize,
+  accordion
 } from './modules/';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -36,4 +37,5 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   filter();
   pictureSize('.sizes-block');
+  accordion('.accordion-heading');
 });
