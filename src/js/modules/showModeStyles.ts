@@ -4,8 +4,10 @@ export const showModeStyles = (trigger: string, wrapper: string) => {
   const btn = document.querySelector(trigger);
 
   btn?.addEventListener('click', function () {
-    getResource('http://localhost:3000/styles')
-      .then((res) => createCards(res))
+    getResource('public/db.json')
+      .then((res) => {
+        createCards(res.styles);
+      })
       .catch((error) => console.log(error));
 
     this.remove();
