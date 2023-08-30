@@ -14,9 +14,7 @@
     "not dead"
   ],
   "devDependencies": {
-    "vite": "^4.2.1"
-  },
-  "dependencies": {
+    "vite": "^4.2.1",
     "json-server": "^0.17.3"
   }
 }
