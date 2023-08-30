@@ -4,7 +4,7 @@ export const showModeStyles = (trigger: string, wrapper: string) => {
   const btn = document.querySelector(trigger);
 
   btn?.addEventListener('click', function () {
-    getResource('public/db.json')
+    getResource('./db.json')
       .then((res) => {
         createCards(res.styles);
       })
