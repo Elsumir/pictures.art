@@ -5,7 +5,8 @@ import {
   checkTextInputs,
   mask,
   showModeStyles,
-  calc
+  calc,
+  filter
 } from './modules/';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -32,4 +33,5 @@ window.addEventListener('DOMContentLoaded', () => {
     promocode: '.promocode',
     result: '.calc-price'
   });
+  filter();
 });
