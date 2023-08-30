@@ -26,7 +26,7 @@ export const showModeStyles = (trigger: string, wrapper: string) => {
         'col-xs-offset-1'
       );
 
-      const fullScr = `./src/${src}`;
+      const fullScr = `./public/${src}`;
 
       card.innerHTML = `
         <div class=styles-block>
