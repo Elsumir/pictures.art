@@ -7,15 +7,13 @@ interface ICalc {
 }
 
 export const calc = ({ size, material, options, promocode, result }: ICalc) => {
-  const sizeBlock = document.querySelector<HTMLFormElement>(size),
-    materialBlock = document.querySelector<HTMLFormElement>(material),
-    optionsBlock = document.querySelector<HTMLFormElement>(options),
-    promocodeBlock = document.querySelector<HTMLFormElement>(promocode),
-    resultBlock = document.querySelector(result);
+  const sizeBlock = document.querySelector<HTMLFormElement>(size);
+  const materialBlock = document.querySelector<HTMLFormElement>(material);
+  const optionsBlock = document.querySelector<HTMLFormElement>(options);
+  const promocodeBlock = document.querySelector<HTMLFormElement>(promocode);
+  const resultBlock = document.querySelector(result);
 
-  console.log(sizeBlock?.value);
-
-  let sum = 0;
+  let sum: number = 0;
 
   const calcFunc = () => {
     sum = Math.round(
