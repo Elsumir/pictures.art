@@ -6,7 +6,8 @@ import {
   mask,
   showModeStyles,
   calc,
-  filter
+  filter,
+  pictureSize
 } from './modules/';
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -34,4 +35,5 @@ window.addEventListener('DOMContentLoaded', () => {
     result: '.calc-price'
   });
   filter();
+  pictureSize('.sizes-block');
 });
