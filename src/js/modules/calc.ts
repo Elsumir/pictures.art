@@ -26,7 +26,7 @@ export const calc = ({ size, material, options, promocode, result }: ICalc) => {
 
     if (!sizeBlock?.value || !materialBlock?.value) {
       resultBlock.textContent = 'Пожалуйста, выберите метериал';
-    } else if (promocodeBlock?.value === 'IWANTPOPART') {
+    } else if (promocodeBlock?.value.toUpperCase() === 'IWANTPOPART') {
       resultBlock.textContent = Math.round(sum * 0.7);
     } else {
       resultBlock.textContent = sum;
