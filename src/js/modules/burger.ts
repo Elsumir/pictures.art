@@ -13,7 +13,7 @@ export const burger = (menuBurger: string, burgerSelector: string) => {
   displayToggle('none');
 
   burgerElem?.addEventListener('click', () => {
-    menuElem.style.display == 'none' && window.screen.availWidth < BREAKPOINT
+    menuElem.style.display == 'none' && window.screen.availWidth <= BREAKPOINT
       ? displayToggle('block')
       : displayToggle('none');
   });
